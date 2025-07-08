@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version='1.9'>
   <model name='x500-Depth'>
+    <pose>2 5 0 0 0 0</pose>
     <include merge='true'>
       <uri>x500</uri>
     </include>
