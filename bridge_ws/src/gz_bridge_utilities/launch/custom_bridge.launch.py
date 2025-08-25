@@ -53,6 +53,12 @@ def generate_launch_description():
                           "-r", "/model/x500_depth_0/pose:=/tf",]
         ),
 
+        #Node(
+        #    package='tf2_ros',
+        #    executable='static_transform_publisher',
+        #    arguments=["0", "0", "0", "0", "0", "0", "1", "base_link", "x500_depth_0"]
+        #),
+
         Node(
             package='tf2_ros',
             namespace = 'scan_to_map',

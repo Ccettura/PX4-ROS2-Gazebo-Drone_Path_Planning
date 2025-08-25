@@ -1,0 +1,107 @@
+# ====== GENERAL ======
+amcl:  # lo teniamo spento; nav2_bringup lo ignorera
+  ros__parameters:
+    use_sim_time: true
+
+bt_navigator:
+  ros__parameters:
+    global_frame_id: map
+    robot_base_frame: x500_depth_0/base_link
+    use_sim_time: true
+
+controller_server:
+  ros__parameters:
+    robot_base_frame: x500_depth_0/base_link
+    use_sim_time: true
+    controller_frequency: 10.0
+    min_x_velocity_threshold: 0.05
+    progress_checker_plugin: "progress_checker"
+    goal_checker_plugin: "goal_checker"
+    controller_plugins: ["FollowPath"]
+    FollowPath:
+        plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+        desired_linear_vel: 1.0
+        lookahead_dist: 1.0
+
+planner_server:
+  ros__parameters:
+    robot_base_frame: x500_depth_0/base_link
+    use_sim_time: true
+    expected_planner_frequency: 1.0
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+
+# ====== COSTMAPS ======
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      global_frame: map
+      robot_base_frame: x500_depth_0/base_link
+      footprint_padding: 0.2
+      update_frequency: 2.0
+      publish_frequency: 1.0
+      plugins: ["static_layer", "voxel_layer", "inflation_layer"]
+
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_topic: /projected_map
+        map_subscribe_transient_local: false
+        subscribe_to_updates: true
+
+      voxel_layer:
+        plugin: "nav2_costmap_2d::VoxelLayer"
+        observation_sources: octomap
+        voxel_size: 0.05                  # 5 cm voxel
+        z_voxels: 16
+        mark_threshold: 0
+        octomap:
+          topic: /octomap_point_cloud_centers
+          max_obstacle_height: 3.0        # taglia sopra il drone
+          obstacle_range: 4.0
+          raytrace_range: 5.0
+          clearing: true
+          marking: true
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.6
+        cost_scaling_factor: 10.0
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      global_frame: odom
+      robot_base_frame: x500_depth_0/base_link
+      footprint_padding: 0.2
+      rolling_window: true
+      width: 5
+      height: 5
+      resolution: 0.10
+      update_frequency: 10.0
+      publish_frequency: 5.0
+      plugins: ["static_layer", "voxel_layer", "inflation_layer"]
+
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_topic: /projected_map
+        map_subscribe_transient_local: false
+        subscribe_to_updates: true
+        
+      voxel_layer:
+        plugin: "nav2_costmap_2d::VoxelLayer"
+        observation_sources: octomap
+        voxel_size: 0.05
+        z_voxels: 16
+        octomap:
+          topic: /octomap_point_cloud_centers
+          max_obstacle_height: 3.0
+          obstacle_range: 4.0
+          raytrace_range: 5.0
+          clearing: true
+          marking: true
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.6
+        cost_scaling_factor: 10.0
