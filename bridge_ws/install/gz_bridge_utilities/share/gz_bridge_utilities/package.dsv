@@ -1,0 +1,9 @@
+source;share/gz_bridge_utilities/hook/pythonpath.ps1
+source;share/gz_bridge_utilities/hook/pythonpath.dsv
+source;share/gz_bridge_utilities/hook/pythonpath.sh
+source;share/gz_bridge_utilities/hook/ament_prefix_path.ps1
+source;share/gz_bridge_utilities/hook/ament_prefix_path.dsv
+source;share/gz_bridge_utilities/hook/ament_prefix_path.sh
+source;../../build/gz_bridge_utilities/share/gz_bridge_utilities/hook/pythonpath_develop.ps1
+source;../../build/gz_bridge_utilities/share/gz_bridge_utilities/hook/pythonpath_develop.dsv
+source;../../build/gz_bridge_utilities/share/gz_bridge_utilities/hook/pythonpath_develop.sh

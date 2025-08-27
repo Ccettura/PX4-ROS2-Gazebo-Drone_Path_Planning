@@ -1,0 +1,24 @@
+[0.645s] Invoking command in '/root/bridge_ws/build/gz_bridge_utilities': PYTHONPATH=/root/bridge_ws/build/gz_bridge_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/bridge_ws/install/gz_bridge_utilities/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/bridge_ws/build/gz_bridge_utilities/build --no-deps symlink_data
+[0.836s] running develop
+[0.920s] running egg_info
+[0.920s] creating gz_bridge_utilities.egg-info
+[0.926s] writing gz_bridge_utilities.egg-info/PKG-INFO
+[0.927s] writing dependency_links to gz_bridge_utilities.egg-info/dependency_links.txt
+[0.927s] writing requirements to gz_bridge_utilities.egg-info/requires.txt
+[0.927s] writing top-level names to gz_bridge_utilities.egg-info/top_level.txt
+[0.927s] writing manifest file 'gz_bridge_utilities.egg-info/SOURCES.txt'
+[0.940s] reading manifest file 'gz_bridge_utilities.egg-info/SOURCES.txt'
+[0.940s] writing manifest file 'gz_bridge_utilities.egg-info/SOURCES.txt'
+[0.947s] running build_ext
+[0.947s] Creating /root/bridge_ws/install/gz_bridge_utilities/lib/python3.10/site-packages/gz-bridge-utilities.egg-link (link to .)
+[0.948s] 
+[0.948s] Installed /root/bridge_ws/build/gz_bridge_utilities
+[0.948s] running symlink_data
+[0.948s] creating /root/bridge_ws/install/gz_bridge_utilities/share/ament_index
+[0.948s] creating /root/bridge_ws/install/gz_bridge_utilities/share/ament_index/resource_index
+[0.948s] creating /root/bridge_ws/install/gz_bridge_utilities/share/ament_index/resource_index/packages
+[0.948s] symbolically linking /root/bridge_ws/build/gz_bridge_utilities/resource/gz_bridge_utilities -> /root/bridge_ws/install/gz_bridge_utilities/share/ament_index/resource_index/packages
+[0.948s] symbolically linking /root/bridge_ws/build/gz_bridge_utilities/package.xml -> /root/bridge_ws/install/gz_bridge_utilities/share/gz_bridge_utilities
+[0.948s] creating /root/bridge_ws/install/gz_bridge_utilities/share/gz_bridge_utilities/launch
+[0.948s] symbolically linking /root/bridge_ws/build/gz_bridge_utilities/launch/custom_bridge.launch.py -> /root/bridge_ws/install/gz_bridge_utilities/share/gz_bridge_utilities/launch
+[0.971s] Invoked command in '/root/bridge_ws/build/gz_bridge_utilities' returned '0': PYTHONPATH=/root/bridge_ws/build/gz_bridge_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/bridge_ws/install/gz_bridge_utilities/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /root/bridge_ws/build/gz_bridge_utilities/build --no-deps symlink_data

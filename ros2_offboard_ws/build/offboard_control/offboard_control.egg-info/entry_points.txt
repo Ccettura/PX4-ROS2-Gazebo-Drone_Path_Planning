@@ -1,0 +1,2 @@
+[console_scripts]
+obstacle_avoidance = offboard_control.obstacle_avoidance:main

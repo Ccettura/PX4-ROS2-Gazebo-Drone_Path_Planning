@@ -1,0 +1,1 @@
+/root/ros2_offboard/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/sensors_status__type_support.h

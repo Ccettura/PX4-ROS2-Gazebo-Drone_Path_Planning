@@ -110,12 +110,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
     
 # building needed packages
-WORKDIR /root/bridge_ws
-RUN bash -lc 'source /opt/ros/humble/setup.bash && \
-    colcon build --symlink-install'
-WORKDIR /root/ros2_offboard
-RUN bash -lc 'source /opt/ros/humble/setup.bash && \
-    colcon build --symlink-install'
+#WORKDIR /root/bridge_ws
+#RUN source /opt/ros/humble/setup.bash && colcon build --symlink-install
+#WORKDIR /root/ros2_offboard
+#RUN source /opt/ros/humble/setup.bash && colcon build --symlink-install
 
 
 
@@ -124,3 +122,7 @@ RUN echo 'source /opt/ros/humble/setup.bash'        >> /root/.bashrc && \
     echo 'source ~/bridge_ws/install/setup.bash'    >> /root/.bashrc && \
     echo 'source ~/octomap_ws/install/setup.bash'   >> /root/.bashrc && \
     echo 'source ~/ros2_offboard/install/setup.bash'>> /root/.bashrc
+
+
+ENTRYPOINT ["/root/scripts/entrypoint.sh"]
+CMD ["bash"]
