@@ -1,1 +1,0 @@
-/root/ros2_offboard/src/px4_msgs/msg/NavigatorMissionItem.msg

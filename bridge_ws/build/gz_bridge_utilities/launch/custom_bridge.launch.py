@@ -1,1 +1,0 @@
-/root/bridge_ws/src/gz_bridge_utilities/launch/custom_bridge.launch.py

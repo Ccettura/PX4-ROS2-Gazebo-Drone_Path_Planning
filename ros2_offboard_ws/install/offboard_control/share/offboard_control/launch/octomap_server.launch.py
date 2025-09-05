@@ -1,1 +1,0 @@
-/root/ros2_offboard/build/offboard_control/launch/octomap_server.launch.py
