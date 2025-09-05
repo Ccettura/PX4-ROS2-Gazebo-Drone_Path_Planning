@@ -1,1 +1,1 @@
-/opt/ros/humble
+/root/ros2_offboard/install/px4_msgs:/root/ros2_offboard/install/offboard_control:/root/octomap_ws/install/octomap_server2:/root/octomap_ws/install/pcl_conversions:/root/octomap_ws/install/pcl_msgs:/root/octomap_ws/install/octomap_msgs:/root/bridge_ws/install/gz_bridge_utilities:/opt/ros/humble

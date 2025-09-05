@@ -5,6 +5,7 @@ launch/octomap_server.launch.py
 offboard_control/__init__.py
 offboard_control/obstacle_avoidance.py
 offboard_control/obstacle_avoidance_BACKUP.py
+offboard_control/projected_to_map.py
 offboard_control.egg-info/PKG-INFO
 offboard_control.egg-info/SOURCES.txt
 offboard_control.egg-info/dependency_links.txt

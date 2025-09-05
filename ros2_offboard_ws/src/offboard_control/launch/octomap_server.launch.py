@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-ROS 2 launch per automatizzare la pipeline **dalla prima static transform in poi**.
+ROS 2 launch to automate the pipeline **from the first static transform onward**.
 
-Include:
+Includes:
   • 3 static_transform_publisher
-  • octomap_server2 (con i parametri indicati)
+  • octomap_server2 (with the specified parameters)
   • Nav2 bringup (navigation_launch.py)
-  • Nodo offboard_control/obstacle_avoidance
+  • Node offboard_control/obstacle_avoidance
 
-NON include il custom bridge (come richiesto).
+Does NOT include the custom bridge (as requested).
 
-Uso tipico (dentro il container):
-  ros2 launch <il_tuo_pacchetto> drone_stack.launch.py \
+Typical usage (inside the container):
+  ros2 launch <your_package> drone_stack.launch.py \
       use_sim_time:=true \
       nav2_params:=/root/scripts/nav2_drone_params.yaml
 """
@@ -27,17 +27,17 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-    # --- Argomenti configurabili ---
+    # --- Configurable arguments ---
     use_sim_time = LaunchConfiguration('use_sim_time')
     nav2_params = LaunchConfiguration('nav2_params')
 
     declare_use_sim_time = DeclareLaunchArgument(
         'use_sim_time', default_value='true',
-        description='Propaga use_sim_time dove applicabile')
+        description='Propagate use_sim_time where applicable')
 
     declare_nav2_params = DeclareLaunchArgument(
         'nav2_params', default_value='/root/scripts/nav2_drone_params.yaml',
-        description='Percorso al file di parametri per Nav2')
+        description='Path to the parameter file for Nav2')
 
     actions = [
         declare_use_sim_time,
@@ -91,9 +91,19 @@ def generate_launch_description():
         }.items()
     )
 
-    # Attendi un attimo che i TF siano disponibili
+    # Wait a bit for the TFs to be available
     octomap_delayed = TimerAction(period=2.0, actions=[octomap_include])
     actions.append(octomap_delayed)
 
+    # --- Run projected_to_map after 10 seconds from octomap start ---
+    projected_to_map_node = Node(
+        package='offboard_control',
+        executable='projected_to_map',
+        name='projected_to_map',
+        output='screen'
+    )
+
+    projected_to_map_delayed = TimerAction(period=12.0, actions=[projected_to_map_node])
+    actions.append(projected_to_map_delayed)
+
     return LaunchDescription(actions)
-    

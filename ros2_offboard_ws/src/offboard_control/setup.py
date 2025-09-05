@@ -24,6 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             'obstacle_avoidance = offboard_control.obstacle_avoidance:main',
+            'projected_to_map = offboard_control.projected_to_map:main',
         ],
     },
 )

@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-c"]
 
 # install utilities 
 RUN apt update && apt upgrade -y && \
-    apt install -y vim nano git wget curl \
+    apt install -y vim nano micro git wget curl \
     iputils-ping net-tools openssh-server pip
 
 
